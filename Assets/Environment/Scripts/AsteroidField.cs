@@ -12,7 +12,7 @@ public class AsteroidField : MonoBehaviour {
         for (int i = 0; i < nAsteroids; i++)
         {
             Vector3 pos = Vector3.Scale(Random.insideUnitSphere, new Vector3(150, 20, 150));
-            Instantiate(AsteroidGameObject, pos, Random.rotation, transform);
+            Instantiate(AsteroidGameObject, pos, Random.rotation, transform).transform.localScale = Vector3.one * Random.Range(.5f, 3f);
         }
 	}
 	

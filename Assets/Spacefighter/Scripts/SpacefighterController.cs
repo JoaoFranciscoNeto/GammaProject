@@ -80,27 +80,27 @@ namespace SpaceFighter
             }
 
             rbody.AddRelativeTorque(
-                    (pitch * turn_speed * Time.deltaTime),
-                    (yaw * turn_speed * Time.deltaTime),
-                    (roll * turn_speed * Time.deltaTime)
+                    (pitch_in * turn_speed * Time.deltaTime),
+                    (yaw_in * turn_speed * Time.deltaTime),
+                    (roll_in * turn_speed * Time.deltaTime)
                 );
 
             rbody.AddRelativeForce(0,0,current_thrust);
-
-            rbody.velocity = Vector3.ClampMagnitude(rbody.velocity, 50);
-
-            UpdateBanking();
+            
+            //UpdateBanking();
         }
 
         private void UpdateBanking()
         {
-            Quaternion rotation = graphics.transform.rotation;
-            Vector3 eulerRot = rotation.eulerAngles;
+            Quaternion localRot = graphics.transform.localRotation;
+            Vector3 eulerRot = graphics.transform.localRotation.eulerAngles;
 
-            eulerRot.z += Mathf.Clamp((-yaw_in * turn_speed * Time.deltaTime), -bank_angle_clamp, bank_angle_clamp);
-            rotation.eulerAngles = eulerRot;
+            eulerRot.y += Mathf.Clamp((yaw_in * Time.deltaTime), -bank_angle_clamp, bank_angle_clamp);
+            Debug.Log(eulerRot);
+            localRot.eulerAngles = eulerRot;
 
-            graphics.transform.rotation = Quaternion.Slerp(graphics.transform.rotation, rotation, bank_rotation_speed * Time.deltaTime);
+            graphics.transform.localRotation = Quaternion.Slerp(graphics.transform.localRotation, localRot, bank_rotation_speed * Time.deltaTime);
         }
+
     }
 }

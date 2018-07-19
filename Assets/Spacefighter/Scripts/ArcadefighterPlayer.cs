@@ -4,16 +4,15 @@ using UnityEngine;
 
 namespace SpaceFighter
 {
-    [RequireComponent(typeof(SpacefighterController))]
-    public class SpacefighterPlayer : MonoBehaviour
-    {
-        SpacefighterController controller;
 
+    public class ArcadefighterPlayer : MonoBehaviour
+    {
+        ArcadefighterController controller;
 
         // Use this for initialization
         void Start()
         {
-            controller = GetComponent<SpacefighterController>();
+            controller = GetComponent<ArcadefighterController>();
         }
 
         // Update is called once per frame
@@ -34,4 +33,5 @@ namespace SpaceFighter
             controller.Move(roll, yaw, pitch, turbo, brake);
         }
     }
+
 }

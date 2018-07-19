@@ -61,6 +61,8 @@ public class PointerController : MonoBehaviour {
 
         positionToCenter = pointerPosition - screenCenter;
         positionToCenter = Vector2.ClampMagnitude(positionToCenter, 500);
+        if (positionToCenter.magnitude < deadzone_radius)
+            positionToCenter = Vector2.zero;
     }
 
     private void OnGUI()
