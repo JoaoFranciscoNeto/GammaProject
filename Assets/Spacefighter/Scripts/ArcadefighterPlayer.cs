@@ -18,7 +18,10 @@ namespace SpaceFighter
         // Update is called once per frame
         void Update()
         {
-
+            if (Input.GetKey(KeyCode.Space))
+            {
+                GetComponent<Weapon>().Fire();
+            }
         }
 
         private void FixedUpdate()

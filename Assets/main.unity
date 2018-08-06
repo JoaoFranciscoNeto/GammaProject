@@ -540,7 +540,7 @@ MonoBehaviour:
   returns_to_center: 1
   instant_snapping: 0
   center_speed: 5
-  deadzone_radius: 20
+  deadzone_radius: 10
   invert_y: 0
   mouse_sensitivity: 10
   pointerPosition: {x: 0, y: 0}
@@ -735,6 +735,7 @@ GameObject:
   - component: {fileID: 2116278170}
   - component: {fileID: 2116278168}
   - component: {fileID: 2116278169}
+  - component: {fileID: 2116278172}
   m_Layer: 0
   m_Name: Arcadefighter
   m_TagString: Untagged
@@ -805,3 +806,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2116278172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2116278167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7dd6750f5f2c2446bf822669da702d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RateOfFire: 2
